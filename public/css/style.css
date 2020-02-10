@@ -23,3 +23,19 @@ font-size: 18px;
 	}
 */		
 
+input[type=submit] {
+	background-color: #FFFFFF;
+	border: none;
+	color: black;
+	padding: 16px 32px;
+	font-size: 16px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+input:hover {
+	background-color: #028A0F;
+	color: white;
+}
+
