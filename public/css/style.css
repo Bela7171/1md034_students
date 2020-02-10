@@ -1,5 +1,10 @@
 body {
 font-family: "arial", sans-serif;
 font-size: 18px;
+}
 
+.allergy {
+	color: #ff0000;
+	text-transform: uppercase;
+	font-weight: bold;
 }
