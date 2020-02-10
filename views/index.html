@@ -71,7 +71,7 @@
 						<h1> Customer information </h1>
 						<p> Formula where customers can fill in their information</p>
 						<h3> Delivery information </h3>
-						<form>
+						<form> <!LIST>
 							<p>
 								<label for="firstandlastname">Full name</label><br>
 								<input type="text" id="firstandlastname" name="faln" required="required" placeholder="First- and Last name" />
@@ -87,13 +87,22 @@
 							<p>
 								<label for="number">House</label><br>
 								<input type="text" id="number" name="st" placeholder="House number" />
+							</p> 
+						</form>	
+						<form><!Radio Buttons>
+							<h3>Gender</h3>
+							<p>
+								<input type="radio" id="female" name="gender" value="female"> <label for="female">Female</input><br>
+								<input type="radio" id="male" name="gender" value="male"> <label for="male">Male</input><br>
+								<input type="radio" id="other" name="gender" value="other"> <label for="other">Other</input><br>
+								<input type="radio" id="non" name="gender" value="non" checked="checked"> <label for="non">Do not wish to provide</input><br>
 							</p>
 						</form>	
 					</section>
 					<section><!Payment section>
 						<h1>Payment methods</h1>
 						<p>
-							<label for="method">Method</label><br />
+							<label for="method">Method</label><br/>
 							<select id="method" name="meth">
 								<option>Credit Card/ Bankcard <selected="selected"> </option>
 								<option>Swish</option>
