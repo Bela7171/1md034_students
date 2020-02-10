@@ -4,26 +4,51 @@ font-size: 18px;
 margin: 0 auto;
 }
 
+
+#menu {
+	color: #ffffff;
+	background-color: black;
+}
+#table1 {
+	width: 10px;
+	padding: 50px;
+	margin: 0 auto;
+}
 .allergy {
 	color: #ff0000;
 	text-transform: uppercase;
 	font-weight: bold;
 }
 
-#menu {
-	color: #ffffff;
-	background-color: black;
-}
 
 #customerinfo {
 	color: #000000;
 	background-color: white;
+	margin: 0 auto;
+	padding: 15px;
 }
-/* #TODO {
-		color: #ff0000;	
-	}
-*/		
 
+#payment {
+	color: #ffffff;
+	background-color: black;
+	margin: 0 auto;
+	padding: 15px;
+}
+
+#confirm {
+	margin: 0 auto;
+	padding: 15px;
+}
+
+input[type=text]:hover {
+	background-color: #B8B8B8;
+	color: black;
+}
+
+input[type=email]:hover {
+	background-color: #B8B8B8;
+	color: black;
+} 
 input[type=submit] {
 	background-color: #FFFFFF;
 	border: none;
@@ -35,14 +60,10 @@ input[type=submit] {
 	cursor: pointer;
 }
 
-input:hover {
+input[type=submit]:hover {
 	background-color: #028A0F;
 	color: white;
 }
 
-#table1 {
-	width: 10px;
-	padding: 50px;
-	margin: 0 auto;
-}
+
 
