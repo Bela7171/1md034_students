@@ -8,3 +8,18 @@ font-size: 18px;
 	text-transform: uppercase;
 	font-weight: bold;
 }
+
+#menu {
+	color: #ffffff;
+	background-color: black;
+}
+
+#customerinfo {
+	color: #000000;
+	background-color: white;
+}
+/* #TODO {
+		color: #ff0000;	
+	}
+*/		
+
