@@ -9,7 +9,8 @@ function menuItem(name, info, allergy, kCal) {
     	return this.name + ' ' + this.calorie;
     }
   }
- 
+ //document.getElementById("myID").innerHTML = "välj en burgare";
+
 let firstBurger = new menuItem('b1', 'allt', 'gluten', 550);  
 let secondBurger = new menuItem('b2', 'all text', 'lactose', 650);
 let thirdBurger = new menuItem('b3', 'all text', null, 600);
