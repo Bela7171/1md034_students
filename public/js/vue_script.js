@@ -1,10 +1,4 @@
-/*HTML:
-<script src="https://vuejs.org/js/vue.js"></script> 
-<ul id="myID">
-  <li v-for="item in items">
-    {{ item.message }}
-  </li>
-</ul>*/
+
 
 function menuItem(name, info, allergy, kCal) {
     this.name = name; // The this keyword refers to the object itself
@@ -25,6 +19,15 @@ let thirdBurger = new menuItem('Super', 'all text', null, 600);
 let newBurger1 = new menuItem('Chicken', 'all text', null, 700);
 let newBurger2 = new menuItem('Vegan', 'all text', null, 500);
 
+//LOOP
+/*HTML:
+<script src="https://vuejs.org/js/vue.js"></script> 
+<ul id="myID">
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+</ul>*/
+
 var vueFunc = new Vue({
   el: '#myID',
   data: {
@@ -37,4 +40,5 @@ var vueFunc = new Vue({
     ]
   }
 })
+
 
