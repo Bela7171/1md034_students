@@ -6,18 +6,23 @@ function menuItem(name, info, allergy, kCal) {
     this.calorie = kCal;
     // use: getElementById('make-image').src="/path/to/images" + selected_text + ".jpg" ?
     this.burger = function() {
-    	return this.name + ' ' + this.calorie;
+    	return this.name + ' ' + this.calorie + '\n';
     }
   }
  //document.getElementById("myID").innerHTML = "välj en burgare";
 
-let firstBurger = new menuItem('b1', 'allt', 'gluten', 550);  
-let secondBurger = new menuItem('b2', 'all text', 'lactose', 650);
-let thirdBurger = new menuItem('b3', 'all text', null, 600);
+let firstBurger = new menuItem('Classic', 'all text', 'gluten', 550);  
+let secondBurger = new menuItem('Mega', 'all text', 'lactose', 650);
+let thirdBurger = new menuItem('Super', 'all text', null, 600);
 
-let newBurger1 = new menuItem('b4', 'all text', null, 700);
-let newBurger2 = new menuItem('b5', 'all text', null, 500);
+let newBurger1 = new menuItem('Chicken', 'all text', null, 700);
+let newBurger2 = new menuItem('Vegan', 'all text', null, 500);
 
-console.log( firstBurger.burger() );
-console.log( secondBurger.burger() );
-console.log( thirdBurger.burger() );
+
+//let list = document.createElement("LI");
+document.getElementById("b1").innerHTML = firstBurger.burger();
+document.getElementById("b2").innerHTML = secondBurger.burger();
+document.getElementById("b3").innerHTML = thirdBurger.burger();
+document.getElementById("b4").innerHTML = newBurger1.burger();
+document.getElementById("b5").innerHTML = newBurger2.burger();
+
