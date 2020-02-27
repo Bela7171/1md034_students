@@ -14,7 +14,7 @@ function menuItem(name, allergy, kCal, img) {
 		return img;
     }
   }
-
+/*
 
   function inputer(burgerArray) {
   	for (var i = 0; i<burgerArray.length; i++){
@@ -43,7 +43,7 @@ let newBurger2 = new menuItem('Vegan', 'all text', null, 500);
 
 var menu = new Array(firstBurger,secondBurger,thirdBurger);
 inputer(menu);
-
+*/
 /*let burger1 = document.getElementById('b1');
 let burgerPic = firstBurger.onload();
 burgerPic.height = "300";

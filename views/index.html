@@ -4,7 +4,8 @@
 	<link rel="stylesheet" 
 	type="text/css" 
 	href="css/style.css">
-	<!--<script src="js/js_script.js" defer></script> -->
+	<script type="text/javascript" src="js/menu.js"></script>
+	<script src="js/js_script.js" defer></script> 
 	<script src="js/vue_script.js" defer></script>
 	<script src="https://vuejs.org/js/vue.js"></script> 
 	<title>Welcome to Heavenly Burgers!</title>
@@ -25,8 +26,9 @@
 						<h2> {{ burger.name }} </h2>
 						<img v-bind:src="burger.img" height="300" width="300"></img>
 						<h4> {{ burger.desc }} </h4>
-						<li> <span class="allergy"> {{ burger.allergy}} </span></li>
-						<li> {{ burger.calories}} </li>
+						<li v-if="burger.lactose"> <span class="allergy"> contains Lactose </span></li>
+						<li v-if="burger.gluten"> <span class="allergy"> contains Gluten </span></li>
+						<li> {{ burger.kCal}} </li>
 					</div>
 			</div>
 		</section>
