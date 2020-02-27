@@ -4,9 +4,9 @@
 	<link rel="stylesheet" 
 	type="text/css" 
 	href="css/style.css">
-	<script src="js/js_script.js" defer></script>
-	<!-- <script src="js/vue_script.js"></script>
-	<script src="https://vuejs.org/js/vue.js"></script> -->
+	<!--<script src="js/js_script.js" defer></script> -->
+	<script src="js/vue_script.js" defer></script>
+	<script src="https://vuejs.org/js/vue.js"></script> 
 	<title>Welcome to Heavenly Burgers!</title>
 	<meta charset="UTF-8"/>
 </head>
@@ -20,15 +20,15 @@
 
 		<section id="menu"><!Menus>
 			<center><h3> Chefs recommendations</h3></center>
-			<div id="burgerselect" class="wrapper">
-				<div id="1" class="box a"> Terayaki chicken "Tasty" burger </div>
-				<div id="2" class="box b"> Red chili "The Destroyer" burger</div>
-				<div id="3" class="box c"> Healthy quorn "goNature" burger</div>
-				<!-- to add new burger, must add line!
-				<div id="4" class="box c"> newBurger</div>
-			-->
+			<div id="burgerSelect" class="wrapper">
+					<div v-for="burger in burgers">
+						<h2> {{ burger.name }} </h2>
+						<img v-bind:src="burger.img" height="300" width="300"></img>
+						<h4> {{ burger.desc }} </h4>
+						<li> <span class="allergy"> {{ burger.allergy}} </span></li>
+						<li> {{ burger.calories}} </li>
+					</div>
 			</div>
-				<!--TO BE IMPLEMENTED IF NEEDED<div class="box d">D</div>-->
 		</section>
 					<section id="customerinfo"> <!CUSTOMER INFORMATION>
 						<h1> Customer information </h1>

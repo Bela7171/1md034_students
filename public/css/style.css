@@ -35,32 +35,10 @@ padding: 0;
      display: grid;
      grid-gap: 10px;
      grid-template-columns: 350px 350px 350px;
-     background-color: #444;
-     color: #444;
+     background-color: black;
+     color: white;
      margin: 0 auto;
  }
-
- .box {
-     background-color: #222;
-     color: #eee;
-     border-radius: 50px;
-     padding: 10px;
-     font-size: 150%;
-
- }
-
-  /*
- .d {
-     grid-column: 2 ;
-     grid-row: 2 ;
- }*/
-
-
-/*#table1 {
-	width: 150px;
-	padding: 10px;
-	margin: 0 auto;
-}*/
 
 .allergy {
 	color: #ff0000;
