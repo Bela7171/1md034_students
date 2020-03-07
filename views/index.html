@@ -5,7 +5,7 @@
 	type="text/css" 
 	href="css/style.css">
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script src="js/js_script.js" defer></script> 
+	<!-- <script src="js/js_script.js" defer></script>  -->
 	<script src="js/vue_script.js" defer></script>
 	<script src="https://vuejs.org/js/vue.js"></script> 
 	<title>Welcome to Heavenly Burgers!</title>
@@ -29,6 +29,8 @@
 						<li v-if="burger.lactose"> <span class="allergy"> contains Lactose </span></li>
 						<li v-if="burger.gluten"> <span class="allergy"> contains Gluten </span></li>
 						<li> {{ burger.kCal}} </li>
+						<input type='checkbox' id='chosen' v-bind:value='burger.name' v-model='checked'>
+						<label for="chosen"> I want this!  </label>
 					</div>
 			</div>
 		</section>
@@ -36,7 +38,32 @@
 						<h1> Customer information </h1>
 						<p> Formula where customers can fill in their information</p>
 						<h3> Delivery information </h3>
-						<form> <!LIST>
+							<div id="customerInfo">
+							<h6>Name</h6>
+							<input v-model="name" placeholder="First- and lastname">
+							<h6>E-mail</h6>
+							<input v-model="email" placeholder="E-mail address">
+							<h6>Street</h6>
+							<input v-model="street" placeholder="Street name">
+							<h6>House</h6>
+							<input v-model="number" placeholder="House number">
+							<h6>Gender</h6>
+							<input type="radio" id="one" value="Female" v-model="picked">
+							<label for="one">Female</label>
+							<br>	
+							<input type="radio" id="two" value="Male" v-model="picked">
+							<label for="two">Male</label>
+							<br>	
+							<input type="radio" id="other" value="Other" v-model="picked">
+							<label for="other">Other</label>
+							<br>	
+							<input type="radio" id="non" value="Non" v-model="picked">
+							<label for="non">Non</label>
+							</div>
+
+
+
+<!-- 						<form> JS-version 
 							<p>
 								<label for="firstandlastname">Full name</label><br>
 								<input type="text" id="firstandlastname" name="faln" required="required" placeholder="First- and Last name" />
@@ -53,8 +80,8 @@
 								<label for="number">House</label><br>
 								<input type="text" id="number" name="st" placeholder="House number" />
 							</p> 
-						</form>	
-						<form><!Radio Buttons>
+						</form>	 -->
+<!-- 						<form><!Radio Buttons>
 							<h3>Gender</h3>
 							<p>
 								<input type="radio" id="female" name="gender" value="female"> <label for="female">Female</input><br>
@@ -62,7 +89,7 @@
 								<input type="radio" id="other" name="gender" value="other"> <label for="other">Other</input><br>
 								<input type="radio" id="non" name="gender" value="non" checked="checked"> <label for="non">Do not wish to provide</input><br>
 							</p>
-						</form>	
+						</form>	 -->
 					</section>
 					<section id="payment"><!Payment section>
 						<h1>Payment methods</h1>
@@ -75,9 +102,21 @@
 							</select>
 						</p>
 					</section>	
-					<section id="confirm">
-						<input type="submit" value="Order" />
-					</section>
+<!-- 					<section id="confirm"> Task t4-10 - JS versions
+						<input id="confirmBtn" type="submit" value="Order" />
+					</section> -->
+					<div id="confirm"> 
+						<button v-on:click="getOrder"> Order now </button>
+						<p> <h4>Your order:</h4> <br>
+							Burger: {{ custBurger }} <br>
+
+							Name: {{ custName }} <br>
+							Email: {{ custMail }} <br>
+							Street: {{ custStreet }} <br>
+							House: {{ custNum }} <br>
+							Gender: {{ custGender}}
+						</p>
+					</div>
 				</main>
 				<footer> <hr>&copy 2020 HeavenlyBurgers Inc.</footer>
 			</body>
