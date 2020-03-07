@@ -22,8 +22,6 @@ function menuItem(name, allergy, kCal, img) {
   console.log("Button clicked!");
   let fullName = document.getElementById('firstandlastname').value;
   let emailAdd = document.getElementById('email').value;
-  let street = document.getElementById('street').value;
-  let number = document.getElementById('number').value;
   function displayRadioValue() { 
             var ele = document.getElementsByName('gender'); 
             var counter = 0;
@@ -34,7 +32,7 @@ function menuItem(name, allergy, kCal, img) {
               return ele[counter].value;
         }   
   let gender = displayRadioValue();         
-  let result = new Array(fullName, emailAdd, street, number,gender);
+  let result = new Array(fullName, emailAdd,gender);
   return console.log(result);
   }
 */

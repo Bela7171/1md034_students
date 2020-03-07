@@ -5,6 +5,7 @@
 	type="text/css" 
 	href="css/style.css">
 	<script type="text/javascript" src="js/menu.js"></script>
+	<script src="/socket.io/socket.io.js" defer></script>
 	<!-- <script src="js/js_script.js" defer></script>  -->
 	<script src="js/vue_script.js" defer></script>
 	<script src="https://vuejs.org/js/vue.js"></script> 
@@ -34,7 +35,7 @@
 					</div>
 			</div>
 		</section>
-					<section id="customerinfo"> <!CUSTOMER INFORMATION>
+					<section id="customerinfo"> 
 						<h1> Customer information </h1>
 						<p> Formula where customers can fill in their information</p>
 						<h3> Delivery information </h3>
@@ -43,11 +44,8 @@
 							<input v-model="name" placeholder="First- and lastname">
 							<h6>E-mail</h6>
 							<input v-model="email" placeholder="E-mail address">
-							<h6>Street</h6>
-							<input v-model="street" placeholder="Street name">
-							<h6>House</h6>
-							<input v-model="number" placeholder="House number">
-							<h6>Gender</h6>
+							
+							<h6>Gender</h6> 
 							<input type="radio" id="one" value="Female" v-model="picked">
 							<label for="one">Female</label>
 							<br>	
@@ -72,14 +70,6 @@
 								<label for="email">E-mail</label><br> 
 								<input type="email" id="email" name="em" required="required" placeholder="E-mail address" />
 							</p>
-							<p>
-								<label for="streetname">Street</label><br>
-								<input type="text" id="street" name="st" placeholder="Street name" />
-							</p>
-							<p>
-								<label for="number">House</label><br>
-								<input type="text" id="number" name="st" placeholder="House number" />
-							</p> 
 						</form>	 -->
 <!-- 						<form><!Radio Buttons>
 							<h3>Gender</h3>
@@ -90,6 +80,16 @@
 								<input type="radio" id="non" name="gender" value="non" checked="checked"> <label for="non">Do not wish to provide</input><br>
 							</p>
 						</form>	 -->
+						<div class="view-box">
+							<div id="dots" v-on:click="addOrder">
+								<div 
+								v-for="(order, key) in orders"
+								v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+								{{key}}
+							</div>
+						</div>
+					</div>
+						
 					</section>
 					<section id="payment"><!Payment section>
 						<h1>Payment methods</h1>
@@ -112,8 +112,6 @@
 
 							Name: {{ custName }} <br>
 							Email: {{ custMail }} <br>
-							Street: {{ custStreet }} <br>
-							House: {{ custNum }} <br>
 							Gender: {{ custGender}}
 						</p>
 					</div>
