@@ -59,14 +59,14 @@ padding: 0;
 }
 
 #payment {
-	color: #ffffff;
-	background-color: black;
+	color: #000000;
+	background-color: white;
 	margin: 0 auto;
-	padding: 15px;
+	padding: 0px;
 }
 
-#confirm {
-	background-color: #000000;
+#orderConfirm {
+	background-color: black;
 	color: white;
 	margin: 0 auto;
 	padding: 15px;

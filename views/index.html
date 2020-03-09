@@ -13,7 +13,7 @@
 	<meta charset="UTF-8"/>
 </head>
 <body>
-	<main>
+	<main id="app">
 		<section id="headpart">
 			<h1> Welcome to Heavenly Burgers!</h1>
 			<img id="headimage" src="https://media-cdn.tripadvisor.com/media/photo-s/10/6f/7d/f8/photo5jpg.jpg" alt="top" title= "rest" style="width:100%;">
@@ -23,43 +23,22 @@
 		<section id="menu"><!Menus>
 			<center><h3> Chefs recommendations</h3></center>
 			<div id="burgerSelect" class="wrapper">
-					<div v-for="burger in burgers">
-						<h2> {{ burger.name }} </h2>
-						<img v-bind:src="burger.img" height="300" width="300"></img>
-						<h4> {{ burger.desc }} </h4>
-						<li v-if="burger.lactose"> <span class="allergy"> contains Lactose </span></li>
-						<li v-if="burger.gluten"> <span class="allergy"> contains Gluten </span></li>
-						<li> {{ burger.kCal}} </li>
-						<input type='checkbox' id='chosen' v-bind:value='burger.name' v-model='checked'>
-						<label for="chosen"> I want this!  </label>
-					</div>
+				<div v-for="burger in burgers">
+					<h2> {{ burger.name }} </h2>
+					<img v-bind:src="burger.img" height="300" width="300"></img>
+					<h4> {{ burger.desc }} </h4>
+					<li v-if="burger.lactose"> <span class="allergy"> contains Lactose </span></li>
+					<li v-if="burger.gluten"> <span class="allergy"> contains Gluten </span></li>
+					<li> {{ burger.kCal}} </li>
+					<input type='checkbox' id='chosen' v-bind:value='burger.name' v-model='checked'>
+					<label for="chosen"> I want this!  </label>
+				</div>
 			</div>
 		</section>
-					<section id="customerinfo"> 
-						<h1> Customer information </h1>
-						<p> Formula where customers can fill in their information</p>
-						<h3> Delivery information </h3>
-							<div id="customerInfo">
-							<h6>Name</h6>
-							<input v-model="name" placeholder="First- and lastname">
-							<h6>E-mail</h6>
-							<input v-model="email" placeholder="E-mail address">
-							
-							<h6>Gender</h6> 
-							<input type="radio" id="one" value="Female" v-model="picked">
-							<label for="one">Female</label>
-							<br>	
-							<input type="radio" id="two" value="Male" v-model="picked">
-							<label for="two">Male</label>
-							<br>	
-							<input type="radio" id="other" value="Other" v-model="picked">
-							<label for="other">Other</label>
-							<br>	
-							<input type="radio" id="non" value="Non" v-model="picked">
-							<label for="non">Non</label>
-							</div>
 
-
+		<section id="customerinfo"> 
+			<h1> Customer information </h1>
+			<p> Formula where customers can fill in their information</p>
 
 <!-- 						<form> JS-version 
 							<p>
@@ -80,41 +59,62 @@
 								<input type="radio" id="non" name="gender" value="non" checked="checked"> <label for="non">Do not wish to provide</input><br>
 							</p>
 						</form>	 -->
+				<div id="customerInfo">
+						<h6>Name</h6>
+						<input v-model="name" placeholder="First- and lastname">
+						<h6>E-mail</h6>
+						<input v-model="email" placeholder="E-mail address">
+
+						<h6>Gender</h6> 
+						<input type="radio" id="one" value="Female" v-model="picked">
+						<label for="one">Female</label>
+						<br>	
+						<input type="radio" id="two" value="Male" v-model="picked">
+						<label for="two">Male</label>
+						<br>	
+						<input type="radio" id="other" value="Other" v-model="picked">
+						<label for="other">Other</label>
+						<br>	
+						<input type="radio" id="non" value="Non" v-model="picked">
+						<label for="non">Don't want to specify</label>
+						</div>
+						<h3> Delivery information </h3>
+						<h6>Location</h6>
 						<div class="view-box">
-							<div id="dots" v-on:click="addOrder">
-								<div 
-								v-for="(order, key) in orders"
-								v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-								{{key}}
+							<div id="dots" v-on:click="displayOrder">
+								<div v-bind:style="{ left: localOrder.details.x + 'px', top: localOrder.details.y + 'px'}">
+									{{  localOrder.orderId }}
+								</div>
 							</div>
 						</div>
-					</div>
-						
-					</section>
-					<section id="payment"><!Payment section>
-						<h1>Payment methods</h1>
-						<p>
-							<label for="method">Method</label><br/>
-							<select id="method" name="meth">
-								<option>Credit Card/Bankcard <selected="selected"> </option>
-								<option>Swish</option>
-								<option>Google Pay</option>
-							</select>
-						</p>
-					</section>	
-<!-- 					<section id="confirm"> Task t4-10 - JS versions
-						<input id="confirmBtn" type="submit" value="Order" />
-					</section> -->
-					<div id="confirm"> 
-						<button v-on:click="getOrder"> Order now </button>
-						<p> <h4>Your order:</h4> <br>
-							Burger: {{ custBurger }} <br>
+						<div id="payment"><!Payment section>
+							<h3>Payment methods</h3>
+							<p>
+								<label for="method">Method</label><br/>
+								<select id="method" name="meth">
+									<option>Credit Card/Bankcard <selected="selected"> </option>
+									<option>Swish</option>
+									<option>Google Pay</option>
+								</select>
+							</p>
+						</div>
+						<button v-on:click="addOrder()"> Order now </button>
+			</section>
 
+<!-- 
+				<section id="confirm"> Task t4-10 - JS versions
+						<input id="confirmBtn" type="submit" value="Order" />
+					</section> 
+ -->								
+			<section id="orderConfirm">
+				<div id="orderSummary">
+							<h4>Your order:</h4> <br>
+							Burger: {{ custBurger }} <br>
 							Name: {{ custName }} <br>
 							Email: {{ custMail }} <br>
 							Gender: {{ custGender}}
-						</p>
 					</div>
+			</section>		
 				</main>
 				<footer> <hr>&copy 2020 HeavenlyBurgers Inc.</footer>
 			</body>
