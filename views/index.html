@@ -40,6 +40,11 @@
 			<h1> Customer information </h1>
 			<p> Formula where customers can fill in their information</p>
 
+			<p> My selected burgers: </p>
+			<div v-for='food in checked'>
+				<li>{{ food }}</li>
+			</div>	
+
 <!-- 						<form> JS-version 
 							<p>
 								<label for="firstandlastname">Full name</label><br>
@@ -61,9 +66,9 @@
 						</form>	 -->
 				<div id="customerInfo">
 						<h6>Name</h6>
-						<input v-model="name" placeholder="First- and lastname">
+						<input type="text" v-model="name" placeholder="First- and lastname">
 						<h6>E-mail</h6>
-						<input v-model="email" placeholder="E-mail address">
+						<input type="email" v-model="email" placeholder="E-mail address">
 
 						<h6>Gender</h6> 
 						<input type="radio" id="one" value="Female" v-model="picked">
@@ -89,16 +94,15 @@
 						</div>
 						<div id="payment"><!Payment section>
 							<h3>Payment methods</h3>
-							<p>
 								<label for="method">Method</label><br/>
-								<select id="method" name="meth">
-									<option>Credit Card/Bankcard <selected="selected"> </option>
-									<option>Swish</option>
-									<option>Google Pay</option>
+								<select id="method" v-model="customerPay"> 
+									<option disabled value= ''>Please select one </option> <!-- DENNA BORDE VISAS; VARFÖR GÖR DEN DET INTE?!?! -->
+									<option v-for='pay in payArray' v-bind:value='pay.value'> 
+										{{ pay.text }} 
+									</option>
 								</select>
-							</p>
 						</div>
-						<button v-on:click="addOrder()"> Order now </button>
+						<input type="button" v-on:click="addOrder(); getOrder();" value='order now!'> </input>
 			</section>
 
 <!-- 
@@ -108,11 +112,13 @@
  -->								
 			<section id="orderConfirm">
 				<div id="orderSummary">
-							<h4>Your order:</h4> <br>
+
+							<h4>Your order:</h4>
 							Burger: {{ custBurger }} <br>
 							Name: {{ custName }} <br>
 							Email: {{ custMail }} <br>
-							Gender: {{ custGender}}
+							Gender: {{ custGender}} <br>
+							Payment: {{ custPayment}}
 					</div>
 			</section>		
 				</main>

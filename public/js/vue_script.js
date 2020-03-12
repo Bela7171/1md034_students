@@ -9,25 +9,37 @@ const vm = new Vue ({
 		name: '',
 		email: '',
 		picked: '',
+
 		custBurger: [],	
 		custName: '',
 		custMail: '',
 		custGender: '',
+		custPayment: '',
 
 		orders: {},
 		localOrder: {
 			orderId: '',
 			details: {x: 0, y: 0},
-			orderItems: []
+			orderItems: [],
 		},
+		customerName: '',
+		customerMail: '',
+		customerGender: '',
+		customerPay: 'Creditcard/Debitcard',
 		numberOfOrder: 1,
+		payArray: [
+		{text: 'Credit/debitcard', value: 'Bank'},
+		{text: 'Swish', value: 'Swish'},
+		{text: 'Google pay', value: 'Google Pay'}
+		],
 	},
  methods: {
  	getOrder: function(){
  		this.custBurger = this.checked;
  		this.custName = this.name;
  		this.custMail = this.email;
- 		this.custGender = this.picked;			
+ 		this.custGender = this.picked;
+ 		this.custPayment = this.customerPay;			
  	},
  	getNext: function() {
  	/*	This function returns the next available key (order number) in
@@ -45,6 +57,10 @@ const vm = new Vue ({
        	orderId: this.getNext(),
        	details: this.localOrder.details,
        	orderItems: this.checked,
+       	customerName: this.name,
+       	customerMail: this.email,
+       	customerGender: this.picked,
+       	customerPay: this.customerPay,
        });
    },
    /*Display order*/
@@ -59,7 +75,7 @@ const vm = new Vue ({
    		x: event.clientX - 10 - offset.x,
    		y: event.clientY - 10 - offset.y,
    	},
-   	this.localOrder.orderItems= ['Beans', 'Curry'];
+   	this.localOrder.orderItems= [''];
    }
 }
 })
